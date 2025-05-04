@@ -13,6 +13,8 @@ import { connect } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import Card from "../../components/Card/card"; // adjust path as needed
 import SearchInput from "../../components/SearchInput/SearchInput";
+import List from "../../components/List/List";
+
 // actions
 import { updateProductQuantity } from "../../action/getProductListAction";
 // styles
@@ -103,7 +105,7 @@ const SearchScreen = (props) => {
       {loading ? (
         <ActivityIndicator size="large" style={styles.loader} />
       ) : results.length > 0 ? (
-        <FlatList
+        <List
           data={results}
           //    keyExtractor={(item, index) => `${item.id}-${index}`}
           keyExtractor={(item) => item.id.toString()}

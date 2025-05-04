@@ -24,7 +24,7 @@ const BottomTabs = ({ cartItems }) => {
         },
         tabBarActiveTintColor: "#ff9900",
         tabBarInactiveTintColor: "gray",
-        headerShown: false,
+        headerShown: true,
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />

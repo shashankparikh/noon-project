@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
   card: {
     backgroundColor: "#fff",
     borderRadius: 10,
-    padding: 0,
+    padding: 10,
     margin: 8,
     width: CARD_WIDTH,
     elevation: 3,
@@ -14,13 +14,13 @@ export const styles = StyleSheet.create({
   },
   image: {
     width: CARD_WIDTH - 32,
-    height: 180,
+    height: 200,
     resizeMode: "contain",
     borderRadius: 10,
-    marginHorizontal: 8,
+    marginHorizontal: 10,
   },
   info: {
-    padding: 10,
+    // padding: 10,
     flex: 1,
   },
   title: {
@@ -34,10 +34,13 @@ export const styles = StyleSheet.create({
     marginTop: 4,
     fontWeight: 800,
   },
+  ratingWrapper: {
+    display: "flex",
+    flexDirection: "row",
+    gap: 4,
+  },
   rating: {
-    color: "#f39c12",
-    fontSize: 12,
-    marginTop: 2,
+    color: "#000",
   },
   description: {
     color: "#555",
@@ -104,13 +107,14 @@ export const styles = StyleSheet.create({
   },
   saleTag: {
     position: "absolute",
-    top: 8,
-    right: 8,
+    top: 6,
+    right: 6,
     backgroundColor: "#3F3F3F",
     paddingHorizontal: 8,
-    paddingVertical: 6,
+    paddingVertical: 8,
     borderRadius: 4,
     zIndex: 1,
+    marginVertical: 4,
   },
   saleTagText: {
     color: "#fff",

@@ -1,16 +1,20 @@
-import React from 'react';
-import { View, TextInput } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import {styles} from './SearchInputStyle';
+import React from "react";
+import { View, TextInput } from "react-native";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import { SearchIcon } from "../../assets/icons/icons";
+import { styles } from "./SearchInputStyle";
 const SearchInput = ({ value, onChangeText }) => {
   return (
     <View style={styles.inputContainer}>
-      <Ionicons name="search" size={20} color="#888" style={styles.icon} />
+      <View style={styles.searchIcon}>
+        <SearchIcon />
+      </View>
       <TextInput
         style={styles.textInput}
         placeholder="Search for products..."
         value={value}
         onChangeText={onChangeText}
+        placeholderTextColor="grey"
       />
     </View>
   );

@@ -1,7 +1,8 @@
 import React, { useMemo, useState, useCallback } from "react";
-import { View, Text, FlatList, TouchableOpacity, Alert } from "react-native";
+import { View, Text, TouchableOpacity, Alert } from "react-native";
 import { connect } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
+import List from "../../components/List/List";
 import { styles } from "./CartReviewScreenStyle";
 
 const CartItem = React.memo(({ item }) => (
@@ -74,8 +75,7 @@ const CartReviewScreen = ({ cartItems }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>Order Summary</Text>
-
-      <FlatList
+      <List
         data={cartItems}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => <CartItem item={item} />}
@@ -83,14 +83,11 @@ const CartReviewScreen = ({ cartItems }) => {
           <Text style={styles.emptyText}>No items in cart.</Text>
         }
       />
-
       <PaymentSection
         paymentMethod={paymentMethod}
         onChangePayment={handleChangePayment}
       />
-
       <OrderSummary subtotal={subtotal} tax={tax} total={total} />
-
       <TouchableOpacity
         style={styles.placeOrderButton}
         onPress={handlePlaceOrder}

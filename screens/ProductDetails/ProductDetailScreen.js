@@ -11,7 +11,6 @@ import { FontAwesome } from "@expo/vector-icons"; // or any other icon package
 import { connect } from "react-redux";
 import ImageSlider from "../../components/ImageSlider/ImageSlider";
 import { updateProductQuantity } from "../../action/getProductListAction";
-
 import { styles } from "./ProductDetailStyle";
 
 const ReviewItem = React.memo(({ review }) => (
@@ -75,14 +74,19 @@ const ProductDetailScreen = ({
     <View style={styles.wrapper}>
       <ScrollView contentContainerStyle={styles.container}>
         {/* <Image source={{ uri: product.thumbnail }} style={styles.image} /> */}
+        <Text style={styles.title}>{product.title}</Text>
+
         {product?.images && (
           <View>
             <ImageSlider images={product.images} />
           </View>
         )}
-        <Text style={styles.title}>{product.title}</Text>
         <Text style={styles.price}>${product.price}</Text>
-        <Text style={styles.rating}>⭐ {product.rating}</Text>
+        {/* <Text style={styles.rating}>⭐ {product.rating}</Text> */}
+        <View style={styles.ratingWrapper}>
+          <FontAwesome name="star" size={18} color="#5BAF39" />
+          <Text style={styles.rating}> {product.rating}</Text>
+        </View>
         <Text style={styles.description}>{product.description}</Text>
 
         <Text style={styles.sectionTitle}>Quantity</Text>
@@ -124,8 +128,9 @@ const ProductDetailScreen = ({
         style={styles.cartButton}
         onPress={() => navigation.navigate("Tabs", { screen: "Cart" })}
       >
+        <FontAwesome name={"shopping-cart"} size={20} color="#FFFFFF" />
         <Text style={styles.cartButtonText}>
-          🛒 View Cart ({totalCartQuantity})
+          View Cart ({totalCartQuantity})
         </Text>
       </TouchableOpacity>
     </View>

@@ -34,5 +34,8 @@ export const styles = StyleSheet.create({
     paddingVertical: 14,
     paddingHorizontal: 10,
   },
-  searchIcon: { marginRight: 8 },
+  searchIcon: {
+    paddingHorizontal: 6,
+    marginRight: 8,
+  },
 });

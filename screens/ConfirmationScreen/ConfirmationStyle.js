@@ -14,6 +14,11 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: 30,
   },
-  button: { backgroundColor: "#ff9900", padding: 16, borderRadius: 8 },
+  button: {
+    backgroundColor: "#ff9900",
+    padding: 16,
+    borderRadius: 8,
+    cursor: "pointer",
+  },
   buttonText: { color: "#fff", fontSize: 18, fontWeight: "bold" },
 });

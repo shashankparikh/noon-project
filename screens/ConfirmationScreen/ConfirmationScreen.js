@@ -14,7 +14,7 @@ const ConfirmationScreen = ({ navigation, clearCart, getProductListReset }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>🎉 Order Confirmed!</Text>
+      <Text style={styles.heading}>✅ Order Confirmed!</Text>
       <Text style={styles.message}>
         Thank you for your purchase. Your order has been placed successfully.
       </Text>

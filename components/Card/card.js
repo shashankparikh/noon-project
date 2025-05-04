@@ -36,6 +36,12 @@ const Card = ({ product, onPress, onQuantityChange, config = CardConfig }) => {
       {showImage && (
         <Image source={{ uri: product.thumbnail }} style={styles.image} />
       )}
+      {showRating && (
+        <View style={styles.ratingWrapper}>
+          <FontAwesome name="star" size={18} color="#5BAF39" />
+          <Text style={styles.rating}> {product.rating}</Text>
+        </View>
+      )}
       <View style={styles.info}>
         <Text style={styles.title} numberOfLines={titleMaxLines}>
           {product.title}
@@ -54,12 +60,7 @@ const Card = ({ product, onPress, onQuantityChange, config = CardConfig }) => {
             <Text style={styles.tagText}>{product?.tags?.[0]}</Text>
           </View>
         </View>
-        {showRating && (
-          <>
-            <Text style={styles.rating}> {product.rating}</Text>
-            <FontAwesome name="star" size={18} color="#5BAF39" />
-          </>
-        )}
+
         {showDescription && (
           <Text style={styles.description} numberOfLines={descriptionMaxLines}>
             {product.description}

@@ -27,9 +27,10 @@ export const styles = StyleSheet.create({
     textAlign: "center",
   },
   price: {
-    fontSize: 20,
-    color: "#27ae60",
-    marginTop: 10,
+    color: "#000000",
+    fontSize: 16,
+    marginVertical: 8,
+    fontWeight: 800,
   },
   rating: {
     color: "#f1c40f",
@@ -38,7 +39,7 @@ export const styles = StyleSheet.create({
   description: {
     marginTop: 20,
     fontSize: 16,
-    textAlign: "center",
+    textAlign: "left",
     color: "#555",
   },
   cartButton: {
@@ -123,10 +124,11 @@ export const styles = StyleSheet.create({
     marginLeft: 8,
   },
   reviewComment: {
-    fontSize: 14,
+    fontSize: 16,
     color: "#555",
     marginVertical: 8,
     fontStyle: "italic",
+    textAlign: "left",
   },
   reviewDate: {
     fontSize: 12,
@@ -141,10 +143,22 @@ export const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 30,
     alignItems: "center",
+    display: "flex",
+    flexDirection: "row",
+    gap: 20,
+    justifyContent: "center",
   },
   cartButtonText: {
     color: "#fff",
     fontSize: 18,
     fontWeight: "bold",
+  },
+  ratingWrapper: {
+    display: "flex",
+    flexDirection: "row",
+    gap: 4,
+  },
+  rating: {
+    color: "#000",
   },
 });

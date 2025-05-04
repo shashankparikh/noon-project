@@ -10,10 +10,11 @@ export const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 16,
+    textAlign: "center",
   },
   emptyText: {
-    fontSize: 16,
-    color: "#777",
+    fontSize: 20,
+    color: "#000",
     textAlign: "center",
     marginTop: 20,
   },
@@ -141,5 +142,12 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     color: "#777",
     marginTop: 10,
+  },
+  emptyCart: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 10,
+    flex: 1,
   },
 });

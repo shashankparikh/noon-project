@@ -13,8 +13,6 @@ export const BANNERS = [
 
 export const tagColors = {
   beauty: "#B5E9FD", // lightBlue
-  mascara: "#BA55D3", // medium orchid
-  eyeshadow: "#FFD700", // gold
-  "face powder": "#87CEEB", // sky blue
+  furniture: "#FFD700", // gold
   default: "#FDE6B5", // sky blue
 };

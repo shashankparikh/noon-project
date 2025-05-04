@@ -6,10 +6,13 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
+  SafeAreaView,
 } from "react-native";
 import { connect } from "react-redux";
+import { FontAwesome } from "@expo/vector-icons"; // or any other icon package
 import { updateProductQuantity } from "../../action/getProductListAction";
 import { removeProductFromCart } from "../../action/cartAction";
+import List from "../../components/List/List";
 import { styles } from "./CartScreenStyle";
 
 const CartScreen = ({
@@ -54,14 +57,15 @@ const CartScreen = ({
       <Text style={styles.heading}>Your Cart</Text>
 
       {cartItems.length === 0 ? (
-        <Text style={styles.emptyText}>Your cart is empty</Text>
+        <View style={styles.emptyCart}>
+          <Text style={styles.emptyText}>Your cart is empty</Text>
+          <FontAwesome name={"shopping-cart"} size={40} color="#000000" />
+        </View>
       ) : (
         <>
-          <FlatList
+          <List
             data={cartItems}
-            //  keyExtractor={(item) => `${item.id}-${item.quantity}`}
             keyExtractor={(item) => item.id.toString()}
-            //   keyExtractor={(item, index) => `${item.id}-${index}`}
             renderItem={({ item }) => (
               <View style={styles.itemContainer}>
                 <Image
