@@ -1,6 +1,6 @@
-import { takeLatest, put, select } from 'redux-saga/effects';
-import { UPDATE_PRODUCT_QUANTITY } from '../action/getProductListAction';
-import { updateCart } from '../action/cartAction';
+import { takeLatest, put, select } from "redux-saga/effects";
+import { UPDATE_PRODUCT_QUANTITY } from "../action/getProductListAction";
+import { updateCart } from "../action/cartAction";
 
 function* updateCartSaga() {
   const state = yield select((state) => state.getProductList.data);

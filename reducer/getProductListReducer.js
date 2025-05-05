@@ -24,10 +24,10 @@ export default function (state = initialState, action) {
       const seenIds = new Set();
       const uniqueData = mergedData.filter((product) => {
         if (seenIds.has(product.id)) {
-          return false; // Skip duplicate
+          return false;
         }
-        seenIds.add(product.id); // Mark the id as seen
-        return true; // Keep unique product
+        seenIds.add(product.id);
+        return true;
       });
       return {
         ...state,
@@ -46,7 +46,6 @@ export default function (state = initialState, action) {
       return initialState;
 
     case UPDATE_PRODUCT_QUANTITY:
-      console.log(action.payload, "action.payload");
       return {
         ...state,
         data: state.data.map((product) =>

@@ -1,18 +1,11 @@
 import React, { useMemo, useCallback } from "react";
-import {
-  View,
-  Text,
-  FlatList,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  SafeAreaView,
-} from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 import { connect } from "react-redux";
 import { FontAwesome } from "@expo/vector-icons"; // or any other icon package
 import { updateProductQuantity } from "../../action/getProductListAction";
 import { removeProductFromCart } from "../../action/cartAction";
 import List from "../../components/List/List";
+import { CART_TEXT as TEXT } from "../../constant";
 import { styles } from "./CartScreenStyle";
 
 const CartScreen = ({
@@ -54,11 +47,11 @@ const CartScreen = ({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Your Cart</Text>
+      <Text style={styles.heading}>{TEXT.heading}</Text>
 
       {cartItems.length === 0 ? (
         <View style={styles.emptyCart}>
-          <Text style={styles.emptyText}>Your cart is empty</Text>
+          <Text style={styles.emptyText}>{TEXT.emptyCart}</Text>
           <FontAwesome name={"shopping-cart"} size={40} color="#000000" />
         </View>
       ) : (
@@ -77,11 +70,12 @@ const CartScreen = ({
                   <Text style={styles.itemDescription}>{item.description}</Text>
                   {item.reviews.length > 0 && (
                     <Text style={styles.reviewerName}>
-                      Reviewed by: {item.reviews[0].reviewerName}
+                      {TEXT.reviewedBy} {item.reviews[0].reviewerName}
                     </Text>
                   )}
                   <Text style={styles.itemPrice}>
-                    Price: ${(item.price * item.quantity).toFixed(2)}
+                    {TEXT.pricePrefix} $
+                    {(item.price * item.quantity).toFixed(2)}
                   </Text>
                   <View style={styles.quantityContainer}>
                     <TouchableOpacity
@@ -102,7 +96,9 @@ const CartScreen = ({
                     onPress={() => handleRemove(item)}
                     style={styles.removeButton}
                   >
-                    <Text style={styles.removeButtonText}>Remove</Text>
+                    <Text style={styles.removeButtonText}>
+                      {TEXT.removeButton}
+                    </Text>
                   </TouchableOpacity>
                 </View>
               </View>
@@ -112,14 +108,16 @@ const CartScreen = ({
 
           <View style={styles.bottomContainer}>
             <View style={styles.totalContainer}>
-              <Text style={styles.totalText}>Total:</Text>
+              <Text style={styles.totalText}>{TEXT.totalLabel}</Text>
               <Text style={styles.totalPrice}>${totalPrice.toFixed(2)}</Text>
             </View>
             <TouchableOpacity
               style={styles.checkoutButton}
               onPress={() => navigation.navigate("CartReviewScreen")}
             >
-              <Text style={styles.checkoutButtonText}>Proceed to Checkout</Text>
+              <Text style={styles.checkoutButtonText}>
+                {TEXT.checkoutButton}
+              </Text>
             </TouchableOpacity>
           </View>
         </>

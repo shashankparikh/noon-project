@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from "react-native";
+import { COLORS, SPACING, BORDER_RADIUS } from "../../theme";
 
 const { width } = Dimensions.get("window");
 
@@ -17,25 +18,25 @@ export const styles = StyleSheet.create({
     resizeMode: "contain",
     borderRadius: 10,
     marginHorizontal: 8,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: COLORS.surface,
   },
   textInput: {
-    color: "#000",
+    color: COLORS.textPrimary,
   },
   searchInput: {
     flexDirection: "row",
     alignItems: "center",
     borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 8,
-    backgroundColor: "#ffffff",
-    paddingHorizontal: 10,
+    borderColor: COLORS.border,
+    borderRadius: BORDER_RADIUS.md,
+    backgroundColor: COLORS.background,
+    paddingHorizontal: SPACING.md,
     margin: 10,
     paddingVertical: 14,
     paddingHorizontal: 10,
   },
   searchIcon: {
-    paddingHorizontal: 6,
+    paddingHorizontal: SPACING.sm,
     marginRight: 8,
   },
 });

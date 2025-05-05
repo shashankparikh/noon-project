@@ -1,64 +1,71 @@
 import { StyleSheet } from "react-native";
+import { COLORS, FONT_SIZES, SPACING, BORDER_RADIUS } from "../../theme";
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
-    backgroundColor: "#fff",
+    padding: SPACING.lg,
+    backgroundColor: COLORS.background,
   },
   heading: {
-    fontSize: 24,
+    fontSize: FONT_SIZES.xxlarge,
     fontWeight: "bold",
-    marginBottom: 16,
+    marginBottom: SPACING.lg,
+    color: COLORS.textPrimary,
   },
   itemContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginBottom: 8,
+    marginBottom: SPACING.sm,
   },
   itemText: {
-    fontSize: 16,
+    fontSize: FONT_SIZES.medium,
+    color: COLORS.textPrimary,
   },
   emptyText: {
     textAlign: "center",
-    color: "#777",
-    marginVertical: 20,
+    color: COLORS.textMuted,
+    marginVertical: SPACING.xl,
+    fontSize: FONT_SIZES.medium,
   },
   section: {
-    marginTop: 20,
+    marginTop: SPACING.xl,
   },
   sectionTitle: {
-    fontSize: 18,
+    fontSize: FONT_SIZES.large,
     fontWeight: "bold",
-    marginBottom: 10,
+    marginBottom: SPACING.md,
+    color: COLORS.textPrimary,
   },
   paymentMethod: {
-    color: "#ff9900",
-    fontSize: 16,
+    color: COLORS.primary,
+    fontSize: FONT_SIZES.medium,
   },
   summaryRow: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginVertical: 4,
+    marginVertical: SPACING.xs,
   },
   totalLabel: {
-    fontSize: 18,
+    fontSize: FONT_SIZES.large,
     fontWeight: "bold",
+    color: COLORS.textPrimary,
   },
   totalValue: {
-    fontSize: 18,
+    fontSize: FONT_SIZES.large,
     fontWeight: "bold",
+    color: COLORS.textPrimary,
   },
   placeOrderButton: {
-    backgroundColor: "#ff9900",
-    padding: 16,
-    borderRadius: 8,
+    backgroundColor: COLORS.primary,
+    padding: SPACING.lg,
+    borderRadius: BORDER_RADIUS.lg,
     alignItems: "center",
-    marginTop: 30,
+    marginTop: SPACING.xxl,
   },
   placeOrderText: {
-    color: "#fff",
-    fontSize: 18,
+    color: COLORS.textLight,
+    fontSize: FONT_SIZES.large,
     fontWeight: "bold",
   },
 });

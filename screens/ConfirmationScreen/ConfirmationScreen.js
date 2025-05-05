@@ -1,9 +1,10 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { connect } from "react-redux";
 import { styles } from "./ConfirmationStyle";
 import { clearCart } from "../../action/cartAction";
 import { getProductListReset } from "../../action/getProductListAction";
+import { CONFIRMATION_TEXT as TEXT } from "../../constant";
 
 const ConfirmationScreen = ({ navigation, clearCart, getProductListReset }) => {
   const handleBackHome = () => {
@@ -14,12 +15,10 @@ const ConfirmationScreen = ({ navigation, clearCart, getProductListReset }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>✅ Order Confirmed!</Text>
-      <Text style={styles.message}>
-        Thank you for your purchase. Your order has been placed successfully.
-      </Text>
+      <Text style={styles.heading}>{TEXT.heading}</Text>
+      <Text style={styles.message}>{TEXT.message}</Text>
       <TouchableOpacity style={styles.button} onPress={handleBackHome}>
-        <Text style={styles.buttonText}>Back to Home</Text>
+        <Text style={styles.buttonText}>{TEXT.button}</Text>
       </TouchableOpacity>
     </View>
   );

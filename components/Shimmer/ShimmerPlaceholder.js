@@ -1,7 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Animated, View, StyleSheet, Dimensions } from "react-native";
-
-const { width } = Dimensions.get("window");
+import { Animated, StyleSheet } from "react-native";
 
 const ShimmerPlaceholder = ({ style }) => {
   const shimmerAnim = useRef(new Animated.Value(0)).current;

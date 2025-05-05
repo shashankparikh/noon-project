@@ -13,11 +13,10 @@ import ImageSlider from "../../components/ImageSlider/ImageSlider";
 import SkeletonShimmer from "../../components/Shimmer/SkeletonsScreen";
 import List from "../../components/List/List";
 import { SearchIcon } from "../../assets/icons/icons";
-
+import { HOME_SCREEN_TEXT as TEXT } from "../../constant";
 // Actions
 import {
   getProductList,
-  getProductListReset,
   updateProductQuantity,
 } from "../../action/getProductListAction";
 //styles
@@ -26,7 +25,6 @@ import { styles } from "./HomeScreenStyle";
 const HomeScreen = (props) => {
   const {
     getProductList,
-    getProductListReset,
     getProductListState,
     navigation,
     updateProductQuantity,
@@ -45,7 +43,7 @@ const HomeScreen = (props) => {
       </View>
       <TextInput
         style={styles.textInput}
-        placeholder="Search products..."
+        placeholder={TEXT.searchPlaceholder}
         placeholderTextColor="grey"
         onPress={onPress}
       />
@@ -104,9 +102,7 @@ const HomeScreen = (props) => {
 
   console.log(getProductListState, "getProductListState");
 
-  if (loading)
-    //  return <ActivityIndicator size="large" style={{ marginTop: 50 }} />;
-    return <SkeletonShimmer />;
+  if (loading) return <SkeletonShimmer />;
 
   return (
     <>
@@ -115,7 +111,6 @@ const HomeScreen = (props) => {
         data={products || []}
         keyExtractor={(item) => item.id.toString()}
         extraData={products.map((p) => p.quantity).join(",")}
-        //  extraData={products.map((p) => p.quantity).join(",")}
         //  keyExtractor={(item) => `${item.id}-${item.quantity}`}
         renderItem={({ item }) => (
           <Card
@@ -156,7 +151,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   getProductList: (page) => dispatch(getProductList(page)),
-  getProductListReset: () => dispatch(getProductListReset()),
   updateProductQuantity: (product) => dispatch(updateProductQuantity(product)),
 });
 

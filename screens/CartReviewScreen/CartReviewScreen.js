@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, Alert } from "react-native";
 import { connect } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import List from "../../components/List/List";
+import { CART_REVIEW_TEXT as TEXT } from "../../constant";
 import { styles } from "./CartReviewScreenStyle";
 
 const CartItem = React.memo(({ item }) => (
@@ -18,26 +19,28 @@ const CartItem = React.memo(({ item }) => (
 
 const PaymentSection = React.memo(({ paymentMethod, onChangePayment }) => (
   <View style={styles.section}>
-    <Text style={styles.sectionTitle}>Payment Method</Text>
+    <Text style={styles.sectionTitle}>{TEXT.paymentMethodSection}</Text>
     <TouchableOpacity onPress={onChangePayment}>
-      <Text style={styles.paymentMethod}>{paymentMethod} (Change)</Text>
+      <Text style={styles.paymentMethod}>
+        {paymentMethod} {TEXT.paymentMethodChange}
+      </Text>
     </TouchableOpacity>
   </View>
 ));
 
 const OrderSummary = React.memo(({ subtotal, tax, total }) => (
   <View style={styles.section}>
-    <Text style={styles.sectionTitle}>Order Summary</Text>
+    <Text style={styles.sectionTitle}>{TEXT.heading}</Text>
     <View style={styles.summaryRow}>
-      <Text>Subtotal</Text>
+      <Text>{TEXT.subtotalLabel}</Text>
       <Text>${subtotal.toFixed(2)}</Text>
     </View>
     <View style={styles.summaryRow}>
-      <Text>Tax (10%)</Text>
+      <Text>{TEXT.taxLabel}</Text>
       <Text>${tax.toFixed(2)}</Text>
     </View>
     <View style={styles.summaryRow}>
-      <Text style={styles.totalLabel}>Total</Text>
+      <Text style={styles.totalLabel}>{TEXT.totalLabel}</Text>
       <Text style={styles.totalValue}>${total.toFixed(2)}</Text>
     </View>
   </View>
@@ -60,13 +63,22 @@ const CartReviewScreen = ({ cartItems }) => {
 
   const handleChangePayment = useCallback(() => {
     Alert.alert(
-      "Select Payment Method",
-      "Choose your payment method:",
+      TEXT.alertTitle,
+      TEXT.alertMessage,
       [
-        { text: "Credit Card", onPress: () => setPaymentMethod("Credit Card") },
-        { text: "PayPal", onPress: () => setPaymentMethod("PayPal") },
-        { text: "UPI", onPress: () => setPaymentMethod("UPI") },
-        { text: "Cancel", style: "cancel" },
+        {
+          text: TEXT.paymentOptions[0],
+          onPress: () => setPaymentMethod(TEXT.paymentOptions[0]),
+        },
+        {
+          text: TEXT.paymentOptions[1],
+          onPress: () => setPaymentMethod(TEXT.paymentOptions[1]),
+        },
+        {
+          text: TEXT.paymentOptions[2],
+          onPress: () => setPaymentMethod(TEXT.paymentOptions[2]),
+        },
+        { text: TEXT.paymentOptions[3], style: "cancel" },
       ],
       { cancelable: true }
     );
@@ -74,13 +86,13 @@ const CartReviewScreen = ({ cartItems }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Order Summary</Text>
+      <Text style={styles.heading}>{TEXT.heading}</Text>
       <List
         data={cartItems}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => <CartItem item={item} />}
         ListEmptyComponent={
-          <Text style={styles.emptyText}>No items in cart.</Text>
+          <Text style={styles.emptyText}>{TEXT.emptyCart}</Text>
         }
       />
       <PaymentSection
@@ -92,7 +104,7 @@ const CartReviewScreen = ({ cartItems }) => {
         style={styles.placeOrderButton}
         onPress={handlePlaceOrder}
       >
-        <Text style={styles.placeOrderText}>Place Order</Text>
+        <Text style={styles.placeOrderText}>{TEXT.placeOrderButton}</Text>
       </TouchableOpacity>
     </View>
   );

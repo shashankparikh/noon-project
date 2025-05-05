@@ -1,4 +1,6 @@
 import { StyleSheet, Dimensions } from "react-native";
+import { COLORS } from "../../theme";
+
 const { width } = Dimensions.get("window");
 
 export const styles = StyleSheet.create({
@@ -12,6 +14,6 @@ export const styles = StyleSheet.create({
     resizeMode: "contain",
     borderRadius: 10,
     marginHorizontal: 8,
-    backgroundColor: "#ffffff",
+    backgroundColor: COLORS.textLight,
   },
 });

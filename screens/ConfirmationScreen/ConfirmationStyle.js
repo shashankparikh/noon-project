@@ -1,24 +1,30 @@
 import { StyleSheet } from "react-native";
+import { COLORS, SPACING, BORDER_RADIUS } from "../../theme";
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    padding: 16,
+    padding: SPACING.md,
   },
-  heading: { fontSize: 28, fontWeight: "bold", marginBottom: 20 },
+  heading: {
+    fontSize: 28,
+    fontWeight: "bold",
+    marginBottom: SPACING.lg,
+    color: COLORS.black,
+  },
   message: {
     fontSize: 16,
-    color: "#555",
+    color: COLORS.grayDark,
     textAlign: "center",
-    marginBottom: 30,
+    marginBottom: SPACING.xxl,
   },
   button: {
-    backgroundColor: "#ff9900",
+    backgroundColor: COLORS.primary,
     padding: 16,
     borderRadius: 8,
     cursor: "pointer",
   },
-  buttonText: { color: "#fff", fontSize: 18, fontWeight: "bold" },
+  buttonText: { color: COLORS.textLight, fontSize: 18, fontWeight: "bold" },
 });

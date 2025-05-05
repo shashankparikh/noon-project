@@ -1,34 +1,35 @@
 import { StyleSheet } from "react-native";
+import { COLORS, SPACING, BORDER_RADIUS } from "../../theme";
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: COLORS.textLight,
   },
   input: {
-    margin: 10,
-    padding: 12,
+    margin: SPACING.sm,
+    padding: SPACING.md,
     borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 8,
+    borderColor: COLORS.grayLight,
+    borderRadius: BORDER_RADIUS.md,
   },
   recentContainer: {
-    marginHorizontal: 10,
-    marginBottom: 10,
+    marginHorizontal: SPACING.sm,
+    marginBottom: SPACING.sm,
     height: 100,
   },
   recentItem: {
-    padding: 8,
+    padding: SPACING.sm,
     backgroundColor: "#f0f0f0",
-    borderRadius: 6,
-    marginBottom: 6,
+    borderRadius: BORDER_RADIUS.sm,
+    marginBottom: SPACING.xs,
   },
   recentText: {
-    color: "#333",
+    color: COLORS.grayDark,
   },
   loader: {
-    marginTop: 20,
+    marginTop: SPACING.md,
   },
   noDataContainer: { flex: 1, justifyContent: "center", alignItems: "center" },
-  noDataText: { fontSize: 16, color: "#777" },
+  noDataText: { fontSize: 16, color: COLORS.grayMedium },
 });

@@ -1,9 +1,10 @@
 import { StyleSheet, Dimensions } from "react-native";
+import { COLORS, FONT_SIZES } from "../../theme";
 const CARD_WIDTH = Dimensions.get("window").width / 2 - 24;
 
 export const styles = StyleSheet.create({
   card: {
-    backgroundColor: "#fff",
+    backgroundColor: COLORS.textLight,
     borderRadius: 10,
     padding: 10,
     margin: 8,
@@ -24,13 +25,13 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    fontSize: 14,
+    fontSize: FONT_SIZES.regular,
     fontWeight: "600",
     marginTop: 8,
   },
   price: {
-    color: "#000000",
-    fontSize: 16,
+    color: COLORS.textPrimary,
+    fontSize: FONT_SIZES.medium,
     marginTop: 4,
     fontWeight: 800,
   },
@@ -40,10 +41,10 @@ export const styles = StyleSheet.create({
     gap: 4,
   },
   rating: {
-    color: "#000",
+    color: COLORS.textPrimary,
   },
   description: {
-    color: "#555",
+    color: COLORS.textSecondary,
     marginTop: 4,
   },
   buttonRow: {
@@ -64,11 +65,11 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 6,
   },
   qtyButtonText: {
-    fontSize: 16,
+    fontSize: FONT_SIZES.medium,
     fontWeight: "bold",
   },
   qtyText: {
-    fontSize: 14,
+    fontSize: FONT_SIZES.regular,
     marginHorizontal: 6,
     width: 20,
     textAlign: "center",
@@ -80,8 +81,8 @@ export const styles = StyleSheet.create({
     borderRadius: 6,
   },
   buttonText: {
-    color: "#fff",
-    fontSize: 12,
+    color: COLORS.textLight,
+    fontSize: FONT_SIZES.small,
     fontWeight: "bold",
   },
 
@@ -102,8 +103,8 @@ export const styles = StyleSheet.create({
     borderColor: "#A7A7A7",
   },
   tagText: {
-    fontSize: 12,
-    color: "#000",
+    fontSize: FONT_SIZES.small,
+    color: COLORS.textPrimary,
   },
   saleTag: {
     position: "absolute",
@@ -117,7 +118,7 @@ export const styles = StyleSheet.create({
     marginVertical: 4,
   },
   saleTagText: {
-    color: "#fff",
+    color: COLORS.textLight,
     fontSize: 10,
     fontWeight: 900,
   },

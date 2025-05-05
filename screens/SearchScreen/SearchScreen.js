@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {
   View,
-  TextInput,
-  FlatList,
   ActivityIndicator,
-  StyleSheet,
   TouchableOpacity,
   Text,
   ScrollView,
@@ -14,7 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 import Card from "../../components/Card/card"; // adjust path as needed
 import SearchInput from "../../components/SearchInput/SearchInput";
 import List from "../../components/List/List";
-
+import { SEARCH_SCREEN_TEXT as TEXT } from "../../constant";
 // actions
 import { updateProductQuantity } from "../../action/getProductListAction";
 // styles
@@ -22,23 +19,13 @@ import { styles } from "./SearchScreenStyle";
 
 const SearchScreen = (props) => {
   const { getProductList, updateProductQuantity } = props;
-  console.log(getProductList, "getProductList");
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
-  // recent search
   const [recentSearches, setRecentSearches] = useState([]);
-  // Cache query
-  const [cache, setCache] = useState({});
-
   const navigation = useNavigation();
 
   const handleQuantityChange = (updatedProduct) => {
-    // const updatedResults = results.map((p) =>
-    //   p.id === updatedProduct.id ? updatedProduct : p
-    // );
-    // setResults(updatedResults);
-
     setResults((prevProducts) =>
       prevProducts.map((item) =>
         item.id === updatedProduct.id
@@ -58,16 +45,10 @@ const SearchScreen = (props) => {
 
     setLoading(true);
     const delayDebounce = setTimeout(() => {
-      //   if (cache[query]) {
-      //     setResults(cache[query]);
-      //     setLoading(false);
-      //     return;
-      //   }
       const filtered = getProductList.filter((product) =>
         product.title.toLowerCase().includes(query.toLowerCase())
       );
       setResults(filtered);
-      //   setCache((prev) => ({ ...prev, [query]: filtered }));
       if (filtered.length > 0 && !recentSearches.includes(query)) {
         setRecentSearches((prev) =>
           [query, ...prev.filter((q) => q !== query)].slice(0, 5)
@@ -107,7 +88,6 @@ const SearchScreen = (props) => {
       ) : results.length > 0 ? (
         <List
           data={results}
-          //    keyExtractor={(item, index) => `${item.id}-${index}`}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
             <Card
@@ -128,7 +108,7 @@ const SearchScreen = (props) => {
         />
       ) : !loading && query.length > 0 && results.length === 0 ? (
         <View style={styles.noDataContainer}>
-          <Text style={styles.noDataText}>No products found for "{query}"</Text>
+          <Text style={styles.noDataText}>{TEXT.noProductsFound(query)}</Text>
         </View>
       ) : null}
     </View>

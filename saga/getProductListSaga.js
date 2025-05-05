@@ -1,12 +1,10 @@
 import { call, put, takeLatest } from "redux-saga/effects";
-
 // Action
 import {
   GET_PRODUCT_LIST,
   getProductListSuccess,
   getProductListFail,
 } from "../action/getProductListAction";
-
 // Api
 import { getProductListApi } from "../apis/getProductListApi";
 

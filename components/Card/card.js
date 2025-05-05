@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import { tagColors } from "../../constant";
 import CardConfig from "./cardConfig";
+import { CARD_TEXT as TEXT } from "../../constant";
 import { styles } from "./cardStyle";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 
@@ -57,7 +58,9 @@ const Card = ({ product, onPress, onQuantityChange, config = CardConfig }) => {
               },
             ]}
           >
-            <Text style={styles.tagText}>{product?.tags?.[0]}</Text>
+            <Text style={styles.tagText}>
+              {product?.tags?.[0] || TEXT.defaultTag}
+            </Text>
           </View>
         </View>
 
@@ -71,11 +74,15 @@ const Card = ({ product, onPress, onQuantityChange, config = CardConfig }) => {
           <View style={styles.buttonRow}>
             <View style={styles.quantityBox}>
               <TouchableOpacity onPress={decrease} style={styles.qtyButton}>
-                <Text style={styles.qtyButtonText}>-</Text>
+                <Text style={styles.qtyButtonText}>
+                  {TEXT.decreaseQuantity}
+                </Text>
               </TouchableOpacity>
               <Text style={styles.qtyText}>{product.quantity || 0}</Text>
               <TouchableOpacity onPress={increase} style={styles.qtyButton}>
-                <Text style={styles.qtyButtonText}>+</Text>
+                <Text style={styles.qtyButtonText}>
+                  {TEXT.increaseQuantity}
+                </Text>
               </TouchableOpacity>
             </View>
           </View>

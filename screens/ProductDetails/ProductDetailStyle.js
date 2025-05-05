@@ -1,58 +1,60 @@
 import { StyleSheet, Dimensions } from "react-native";
+import { COLORS, SPACING, BORDER_RADIUS, FONT_SIZES } from "../../theme";
+
 const { width } = Dimensions.get("window");
 
 export const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     display: "flex",
-    backgroundColor: "#fff",
+    backgroundColor: COLORS.textLight,
   },
   container: {
-    padding: 20,
+    padding: SPACING.lg,
     paddingBottom: 100,
     alignItems: "center",
   },
   image: {
-    width: width - 32,
+    width: width - SPACING.xl,
     height: 250,
     resizeMode: "contain",
-    borderRadius: 10,
-    marginHorizontal: 8,
-    backgroundColor: "#f5f5f5",
+    borderRadius: BORDER_RADIUS.md,
+    marginHorizontal: SPACING.md,
+    backgroundColor: COLORS.grayLighter,
   },
   title: {
     fontSize: 22,
     fontWeight: "bold",
-    marginTop: 20,
+    marginVertical: SPACING.lg,
     textAlign: "center",
   },
   price: {
-    color: "#000000",
+    color: COLORS.black,
     fontSize: 16,
-    marginVertical: 8,
+    marginVertical: SPACING.sm,
     fontWeight: 800,
   },
   rating: {
-    color: "#f1c40f",
-    marginTop: 4,
+    color: COLORS.yellow,
+    marginTop: SPACING.xs,
   },
   description: {
-    marginTop: 20,
+    marginTop: SPACING.lg,
     fontSize: 16,
     textAlign: "left",
-    color: "#555",
+    color: COLORS.grayDark,
   },
   cartButton: {
     position: "absolute",
     bottom: 0,
     width: "100%",
     padding: 16,
-    backgroundColor: "#3498db",
+    backgroundColor: COLORS.orange,
     alignItems: "center",
     justifyContent: "center",
   },
   cartText: {
-    color: "#fff",
+    color: COLORS.textLight,
     fontSize: 16,
     fontWeight: "bold",
   },
@@ -71,7 +73,7 @@ export const styles = StyleSheet.create({
   },
 
   quantityButton: {
-    backgroundColor: "#ff9900", // orange button
+    backgroundColor: COLORS.primary, // orange button
     paddingVertical: 8,
     paddingHorizontal: 16,
     borderRadius: 6,
@@ -87,17 +89,17 @@ export const styles = StyleSheet.create({
   quantityText: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "#333",
+    color: COLORS.textHighlight,
     minWidth: 30,
     textAlign: "center",
   },
 
   reviewContainer: {
-    backgroundColor: "#f9f9f9",
+    backgroundColor: COLORS.surfaceAlt,
     borderRadius: 8,
     padding: 12,
     marginBottom: 20,
-    shadowColor: "#000",
+    shadowColor: COLORS.textPrimary,
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
@@ -112,7 +114,7 @@ export const styles = StyleSheet.create({
   reviewerName: {
     fontSize: 16,
     fontWeight: "bold",
-    color: "#333",
+    color: COLORS.textHighlight,
   },
   ratingContainer: {
     flexDirection: "row",
@@ -120,7 +122,7 @@ export const styles = StyleSheet.create({
   },
   reviewRating: {
     fontSize: 14,
-    color: "#ff9900",
+    color: COLORS.primary,
     marginLeft: 8,
   },
   reviewComment: {
@@ -132,14 +134,14 @@ export const styles = StyleSheet.create({
   },
   reviewDate: {
     fontSize: 12,
-    color: "#777",
+    color: COLORS.textMuted,
   },
   cartButton: {
     position: "absolute",
     bottom: 20,
     left: 20,
     right: 20,
-    backgroundColor: "#ff9900",
+    backgroundColor: COLORS.primary,
     padding: 16,
     borderRadius: 30,
     alignItems: "center",
@@ -149,8 +151,8 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
   },
   cartButtonText: {
-    color: "#fff",
-    fontSize: 18,
+    color: COLORS.textLight,
+    fontSize: FONT_SIZES.large,
     fontWeight: "bold",
   },
   ratingWrapper: {
@@ -159,6 +161,6 @@ export const styles = StyleSheet.create({
     gap: 4,
   },
   rating: {
-    color: "#000",
+    color: COLORS.textPrimary,
   },
 });
