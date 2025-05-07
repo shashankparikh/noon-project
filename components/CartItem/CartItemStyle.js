@@ -2,24 +2,6 @@ import { StyleSheet } from "react-native";
 import { COLORS, FONT_SIZES, SPACING, BORDER_RADIUS } from "../../theme";
 
 export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: SPACING.lg,
-    backgroundColor: COLORS.background,
-  },
-  heading: {
-    fontSize: FONT_SIZES.xxlarge,
-    fontWeight: "bold",
-    marginBottom: SPACING.lg,
-    textAlign: "center",
-    color: COLORS.textPrimary,
-  },
-  emptyText: {
-    fontSize: FONT_SIZES.xlarge,
-    color: COLORS.textPrimary,
-    textAlign: "center",
-    marginTop: SPACING.lg,
-  },
   itemContainer: {
     backgroundColor: COLORS.surfaceAlt,
     padding: SPACING.md,
@@ -91,59 +73,5 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     color: COLORS.textHighlight,
     marginVertical: SPACING.sm,
-  },
-  totalContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    padding: 16,
-    borderTopColor: "#eee",
-    backgroundColor: "#fafafa",
-  },
-  totalText: {
-    fontSize: 18,
-    fontWeight: "bold",
-  },
-  totalPrice: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "#ff9900",
-  },
-  bottomContainer: {
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: COLORS.textLight,
-    padding: 16,
-    borderTopWidth: 1,
-    borderTopColor: "#eee",
-  },
-  checkoutButton: {
-    backgroundColor: "#ff9900",
-    padding: 16,
-    borderRadius: 8,
-    alignItems: "center",
-    marginTop: 10,
-  },
-  checkoutButtonText: {
-    color: COLORS.textLight,
-    fontSize: 18,
-    fontWeight: "bold",
-  },
-  cartAnimation: {
-    width: 250,
-    height: 250,
-  },
-  cartText: {
-    fontSize: 18,
-    color: "#777",
-    marginTop: 10,
-  },
-  emptyCart: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: 10,
-    flex: 1,
   },
 });

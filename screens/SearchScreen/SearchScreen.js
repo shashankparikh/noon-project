@@ -93,7 +93,6 @@ const SearchScreen = (props) => {
             <Card
               product={item}
               onPress={() => handleCardPress(item)}
-              onBuyNow={() => console.log("Buy Now:", item.title)}
               onQuantityChange={(updatedProduct) =>
                 handleQuantityChange(updatedProduct)
               }

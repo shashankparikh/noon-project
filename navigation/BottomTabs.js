@@ -8,7 +8,9 @@ import CartScreen from "../screens/CartScreen/CartScreen";
 const Tab = createBottomTabNavigator();
 
 const BottomTabs = ({ cartItems }) => {
-  const totalQuantity = cartItems.length;
+  const totalQuantity = cartItems.reduce((acc, val) => {
+    return val.quantity + acc;
+  }, 0);
 
   return (
     <Tab.Navigator

@@ -3,6 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons"; // or any other icon package
 import { connect } from "react-redux";
 import ImageSlider from "../../components/ImageSlider/ImageSlider";
+import { useQuantity } from "../../hooks/useQuantity";
 import { updateProductQuantity } from "../../action/getProductListAction";
 import { PRODUCT_DETAIL_TEXT as TEXT } from "../../constant";
 import { styles } from "./ProductDetailStyle";
@@ -37,9 +38,16 @@ const ProductDetailScreen = ({
   cartItems,
 }) => {
   const { product } = route.params;
-  const [quantity, setQuantity] = useState(product.quantity);
+  // const [quantity, setQuantity] = useState(product.quantity);
 
-  const totalCartQuantity = cartItems.length;
+  const { quantity, increase, decrease } = useQuantity(
+    product,
+    updateProductQuantity
+  );
+
+  const totalCartQuantity = cartItems.reduce((acc, val) => {
+    return val.quantity + acc;
+  }, 0);
 
   const increaseQuantity = () => {
     const newQuantity = quantity + 1;
@@ -54,15 +62,6 @@ const ProductDetailScreen = ({
       updateProductQuantity({ ...product, quantity: newQuantity });
     }
   };
-
-  const handleQuantityChange = useCallback(
-    (change) => {
-      const newQuantity = Math.max(0, quantity + change);
-      setQuantity(newQuantity);
-      updateProductQuantity({ ...product, quantity: newQuantity });
-    },
-    [quantity, updateProductQuantity, product]
-  );
 
   return (
     <View style={styles.wrapper}>
@@ -83,31 +82,18 @@ const ProductDetailScreen = ({
         <Text style={styles.sectionTitle}>{TEXT.quantity}</Text>
         <View style={styles.quantityContainer}>
           <TouchableOpacity
-            onPress={decreaseQuantity}
+            onPress={() => decrease()}
             style={styles.quantityButton}
           >
             <Text style={styles.quantityButtonText}>-</Text>
           </TouchableOpacity>
           <Text style={styles.quantityText}>{quantity}</Text>
           <TouchableOpacity
-            onPress={increaseQuantity}
+            onPress={() => increase()}
             style={styles.quantityButton}
           >
             <Text style={styles.quantityButtonText}>+</Text>
           </TouchableOpacity>
-          {/* <TouchableOpacity
-            onPress={() => handleQuantityChange(-1)}
-            style={styles.quantityButton}
-          >
-            <Text style={styles.quantityButtonText}>-</Text>
-          </TouchableOpacity>
-          <Text style={styles.quantityText}>{quantity}</Text>
-          <TouchableOpacity
-            onPress={() => handleQuantityChange(1)}
-            style={styles.quantityButton}
-          >
-            <Text style={styles.quantityButtonText}>+</Text>
-          </TouchableOpacity> */}
         </View>
 
         <Text style={styles.sectionTitle}>{TEXT.reviews}</Text>

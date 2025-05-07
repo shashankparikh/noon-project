@@ -59,11 +59,6 @@ const HomeScreen = (props) => {
   };
 
   const handleQuantityChange = (updatedProduct) => {
-    // const upData = [...products];
-    // const updatedProducts = upData.map((item) =>
-    //   item.id === updatedProduct.id ? { ...updatedProduct } : item
-    // );
-    // setProducts(updatedProducts);
     setProducts((prevProducts) =>
       prevProducts.map((item) =>
         item.id === updatedProduct.id
@@ -85,12 +80,12 @@ const HomeScreen = (props) => {
     getProductList(page);
   }, [page]);
 
-  console.log(products, "products");
+  // console.log(products, "products");
 
   // Api State for the Product List
   useEffect(() => {
     if (getProductListState.apiState === "success" && isFocused) {
-      console.log(getProductListState.data, "getProductListState.data");
+      //   console.log(getProductListState.data, "getProductListState.data");
       setProducts([...getProductListState.data]);
       setLoading(false);
       setLoadingMore(false);
@@ -100,7 +95,7 @@ const HomeScreen = (props) => {
     }
   }, [getProductListState.apiState, getProductListState.data, isFocused]);
 
-  console.log(getProductListState, "getProductListState");
+  // console.log(getProductListState, "getProductListState");
 
   if (loading) return <SkeletonShimmer />;
 
@@ -111,7 +106,6 @@ const HomeScreen = (props) => {
         data={products || []}
         keyExtractor={(item) => item.id.toString()}
         extraData={products.map((p) => p.quantity).join(",")}
-        //  keyExtractor={(item) => `${item.id}-${item.quantity}`}
         renderItem={({ item }) => (
           <Card
             product={item}

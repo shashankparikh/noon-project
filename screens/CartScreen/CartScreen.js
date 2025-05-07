@@ -6,6 +6,7 @@ import { updateProductQuantity } from "../../action/getProductListAction";
 import { removeProductFromCart } from "../../action/cartAction";
 import List from "../../components/List/List";
 import { CART_TEXT as TEXT } from "../../constant";
+import CartItem from "../../components/CartItem/CartItem";
 import { styles } from "./CartScreenStyle";
 
 const CartScreen = ({
@@ -24,7 +25,7 @@ const CartScreen = ({
 
   const handleDecrease = useCallback(
     (item) => {
-      if (item.quantity > 1) {
+      if (item.quantity > 0) {
         const updatedItem = { ...item, quantity: item.quantity - 1 };
         updateProductQuantity(updatedItem);
       }
@@ -60,48 +61,13 @@ const CartScreen = ({
             data={cartItems}
             keyExtractor={(item) => item.id.toString()}
             renderItem={({ item }) => (
-              <View style={styles.itemContainer}>
-                <Image
-                  source={{ uri: item.thumbnail }}
-                  style={styles.itemImage}
-                />
-                <View style={styles.infoContainer}>
-                  <Text style={styles.itemTitle}>{item.title}</Text>
-                  <Text style={styles.itemDescription}>{item.description}</Text>
-                  {item.reviews.length > 0 && (
-                    <Text style={styles.reviewerName}>
-                      {TEXT.reviewedBy} {item.reviews[0].reviewerName}
-                    </Text>
-                  )}
-                  <Text style={styles.itemPrice}>
-                    {TEXT.pricePrefix} $
-                    {(item.price * item.quantity).toFixed(2)}
-                  </Text>
-                  <View style={styles.quantityContainer}>
-                    <TouchableOpacity
-                      onPress={() => handleDecrease(item)}
-                      style={styles.quantityButton}
-                    >
-                      <Text style={styles.buttonText}>-</Text>
-                    </TouchableOpacity>
-                    <Text style={styles.quantityText}>{item.quantity}</Text>
-                    <TouchableOpacity
-                      onPress={() => handleIncrease(item)}
-                      style={styles.quantityButton}
-                    >
-                      <Text style={styles.buttonText}>+</Text>
-                    </TouchableOpacity>
-                  </View>
-                  <TouchableOpacity
-                    onPress={() => handleRemove(item)}
-                    style={styles.removeButton}
-                  >
-                    <Text style={styles.removeButtonText}>
-                      {TEXT.removeButton}
-                    </Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
+              <CartItem
+                item={item}
+                updateProductQuantity={updateProductQuantity}
+                handleRemove={handleRemove}
+                handleIncrease={handleIncrease}
+                handleDecrease={handleDecrease}
+              />
             )}
             contentContainerStyle={{ paddingBottom: 150 }}
           />
