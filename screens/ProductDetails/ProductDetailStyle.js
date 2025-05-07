@@ -6,7 +6,6 @@ const { width } = Dimensions.get("window");
 export const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    display: "flex",
     backgroundColor: COLORS.textLight,
   },
   container: {
@@ -143,9 +142,8 @@ export const styles = StyleSheet.create({
     right: 20,
     backgroundColor: COLORS.primary,
     padding: 16,
-    borderRadius: 30,
+    borderRadius: 10,
     alignItems: "center",
-    display: "flex",
     flexDirection: "row",
     gap: 20,
     justifyContent: "center",
@@ -156,7 +154,6 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   ratingWrapper: {
-    display: "flex",
     flexDirection: "row",
     gap: 4,
   },

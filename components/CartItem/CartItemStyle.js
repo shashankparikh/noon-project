@@ -74,4 +74,9 @@ export const styles = StyleSheet.create({
     color: COLORS.textHighlight,
     marginVertical: SPACING.sm,
   },
+  bottomCartWrapper: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
 });

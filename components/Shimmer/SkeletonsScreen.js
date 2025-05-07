@@ -4,7 +4,7 @@ import ShimmerPlaceholder from "./ShimmerPlaceholder";
 
 const { width } = Dimensions.get("window");
 
-const SkeletonShimmer = () => {
+const SkeletonShimmer = ({ screen }) => {
   const dummyArray = Array(6).fill("");
 
   const renderItem = () => (
@@ -23,26 +23,28 @@ const SkeletonShimmer = () => {
         numColumns={2}
         keyExtractor={(_, index) => index.toString()}
         renderItem={renderItem}
-        ListHeaderComponent={() => (
-          <FlatList
-            data={Array(3).fill("")}
-            horizontal
-            keyExtractor={(_, index) => `banner-${index}`}
-            renderItem={() => (
-              <ShimmerPlaceholder
-                style={{
-                  width: width - 32,
-                  height: 180,
-                  borderRadius: 10,
-                  marginHorizontal: 8,
-                  marginBottom: 10,
-                }}
-              />
-            )}
-            showsHorizontalScrollIndicator={false}
-            style={{ marginVertical: 10 }}
-          />
-        )}
+        ListHeaderComponent={() =>
+          screen === "home" ? (
+            <FlatList
+              data={Array(3).fill("")}
+              horizontal
+              keyExtractor={(_, index) => `banner-${index}`}
+              renderItem={() => (
+                <ShimmerPlaceholder
+                  style={{
+                    width: width - 32,
+                    height: 180,
+                    borderRadius: 10,
+                    marginHorizontal: 8,
+                    marginBottom: 10,
+                  }}
+                />
+              )}
+              showsHorizontalScrollIndicator={false}
+              style={{ marginVertical: 10 }}
+            />
+          ) : null
+        }
       />
     </View>
   );

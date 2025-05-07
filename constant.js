@@ -1,8 +1,8 @@
 export const BANNERS = [
-  "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/thumbnail.png",
-  "https://cdn.dummyjson.com/products/images/womens-jewellery/Green%20Oval%20Earring/thumbnail.png",
-  "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/thumbnail.png",
-  "https://cdn.dummyjson.com/products/images/smartphones/iPhone%20X/thumbnail.png",
+  "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/3.webp",
+  "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/2.webp",
+  "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/1.webp",
+  "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/3.webp",
 ];
 
 export const tagColors = {

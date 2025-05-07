@@ -17,29 +17,33 @@ const CartItem = ({ item, handleRemove, handleIncrease, handleDecrease }) => {
           </Text>
         )}
         <Text style={styles.itemPrice}>
-          {TEXT.pricePrefix} ${(item.price * item.quantity).toFixed(2)}
+          {TEXT.pricePrefix} ${item.price.toFixed(2)}
         </Text>
-        <View style={styles.quantityContainer}>
-          <TouchableOpacity
-            onPress={() => handleDecrease(item)}
-            style={styles.quantityButton}
-          >
-            <Text style={styles.buttonText}>-</Text>
-          </TouchableOpacity>
-          <Text style={styles.quantityText}>{item.quantity}</Text>
-          <TouchableOpacity
-            onPress={() => handleIncrease(item)}
-            style={styles.quantityButton}
-          >
-            <Text style={styles.buttonText}>+</Text>
-          </TouchableOpacity>
+        <View style={styles.bottomCartWrapper}>
+          <View style={styles.quantityContainer}>
+            <TouchableOpacity
+              onPress={() => handleDecrease(item)}
+              style={styles.quantityButton}
+            >
+              <Text style={styles.buttonText}>-</Text>
+            </TouchableOpacity>
+            <Text style={styles.quantityText}>{item.quantity}</Text>
+            <TouchableOpacity
+              onPress={() => handleIncrease(item)}
+              style={styles.quantityButton}
+            >
+              <Text style={styles.buttonText}>+</Text>
+            </TouchableOpacity>
+          </View>
+          <View>
+            <TouchableOpacity
+              onPress={() => handleRemove(item)}
+              style={styles.removeButton}
+            >
+              <Text style={styles.removeButtonText}>{TEXT.removeButton}</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-        <TouchableOpacity
-          onPress={() => handleRemove(item)}
-          style={styles.removeButton}
-        >
-          <Text style={styles.removeButtonText}>{TEXT.removeButton}</Text>
-        </TouchableOpacity>
       </View>
     </View>
   );

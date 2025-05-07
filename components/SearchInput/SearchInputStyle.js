@@ -14,8 +14,8 @@ export const styles = StyleSheet.create({
     marginRight: 8,
   },
   textInput: {
-    //  flex: 1,
     height: 40,
+    flexShrink: 1,
   },
   searchIcon: {
     paddingHorizontal: 6,

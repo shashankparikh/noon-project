@@ -140,7 +140,6 @@ export const styles = StyleSheet.create({
     marginTop: 10,
   },
   emptyCart: {
-    display: "flex",
     justifyContent: "center",
     alignItems: "center",
     gap: 10,

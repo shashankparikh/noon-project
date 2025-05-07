@@ -36,7 +36,6 @@ export const styles = StyleSheet.create({
     fontWeight: 800,
   },
   ratingWrapper: {
-    display: "flex",
     flexDirection: "row",
     gap: 4,
   },
@@ -87,7 +86,6 @@ export const styles = StyleSheet.create({
   },
 
   tagsContainer: {
-    display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
     marginTop: 8,

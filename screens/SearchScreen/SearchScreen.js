@@ -12,6 +12,8 @@ import Card from "../../components/Card/card"; // adjust path as needed
 import SearchInput from "../../components/SearchInput/SearchInput";
 import List from "../../components/List/List";
 import { SEARCH_SCREEN_TEXT as TEXT } from "../../constant";
+import SkeletonShimmer from "../../components/Shimmer/SkeletonsScreen";
+
 // actions
 import { updateProductQuantity } from "../../action/getProductListAction";
 // styles
@@ -84,7 +86,8 @@ const SearchScreen = (props) => {
         </View>
       )}
       {loading ? (
-        <ActivityIndicator size="large" style={styles.loader} />
+        //   <ActivityIndicator size="large" style={styles.loader} />
+        <SkeletonShimmer screen={"search"} />
       ) : results.length > 0 ? (
         <List
           data={results}

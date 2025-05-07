@@ -1,5 +1,6 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import { COLORS, FONT_SIZES, SPACING, BORDER_RADIUS } from "../../theme";
+const { width } = Dimensions.get("window");
 
 export const styles = StyleSheet.create({
   container: {
@@ -17,10 +18,18 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     marginBottom: SPACING.sm,
+    borderBottomWidth: 0.4,
   },
   itemText: {
     fontSize: FONT_SIZES.medium,
     color: COLORS.textPrimary,
+    paddingVertical: 10,
+    flexShrink: 1,
+  },
+  itemTextPrice: {
+    fontSize: FONT_SIZES.medium,
+    color: COLORS.textPrimary,
+    paddingVertical: 10,
   },
   emptyText: {
     textAlign: "center",
@@ -61,7 +70,7 @@ export const styles = StyleSheet.create({
     padding: SPACING.lg,
     borderRadius: BORDER_RADIUS.lg,
     alignItems: "center",
-    marginTop: SPACING.xxl,
+    marginVertical: SPACING.lg,
   },
   placeOrderText: {
     color: COLORS.textLight,

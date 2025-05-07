@@ -11,7 +11,7 @@ const CartItem = React.memo(({ item }) => (
     <Text style={styles.itemText}>
       {item.title} × {item.quantity}
     </Text>
-    <Text style={styles.itemText}>
+    <Text style={styles.itemTextPrice}>
       ${(item.price * item.quantity).toFixed(2)}
     </Text>
   </View>

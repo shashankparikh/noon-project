@@ -97,7 +97,7 @@ const HomeScreen = (props) => {
 
   // console.log(getProductListState, "getProductListState");
 
-  if (loading) return <SkeletonShimmer />;
+  if (loading) return <SkeletonShimmer screen={"home"} />;
 
   return (
     <>
