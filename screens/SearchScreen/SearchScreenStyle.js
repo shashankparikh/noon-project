@@ -4,7 +4,7 @@ import { COLORS, SPACING, BORDER_RADIUS } from "../../theme";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.textLight,
+    backgroundColor: COLORS.surface,
   },
   input: {
     margin: SPACING.sm,
