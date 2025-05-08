@@ -16,7 +16,7 @@ const Card = ({ product, onPress, onQuantityChange, config = CardConfig }) => {
     titleMaxLines,
     descriptionMaxLines,
   } = config;
-
+  // console.log(`Rendering card: ${product.title}`);
   const increase = () => {
     const newQuantity = (product.quantity || 0) + 1;
     onQuantityChange?.({ ...product, quantity: newQuantity });
@@ -28,7 +28,7 @@ const Card = ({ product, onPress, onQuantityChange, config = CardConfig }) => {
   };
 
   return (
-    <TouchableOpacity style={styles.card} onPress={onPress}>
+    <TouchableOpacity style={styles.card} onPress={() => onPress(product)}>
       {product?.salesTag && (
         <View style={styles.saleTag}>
           <Text style={styles.saleTagText}>{product.salesTag}</Text>

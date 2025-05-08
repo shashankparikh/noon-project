@@ -49,4 +49,4 @@ const CartItem = ({ item, handleRemove, handleIncrease, handleDecrease }) => {
   );
 };
 
-export default CartItem;
+export default React.memo(CartItem);

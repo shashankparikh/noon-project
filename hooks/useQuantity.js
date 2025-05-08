@@ -5,7 +5,7 @@ export const useQuantity = (product, updateQuantityFn) => {
 
   const increase = useCallback(() => {
     const newQuantity = quantity + 1;
-    setQuantity(newQuantity);
+    setQuantity((prev) => prev + 1);
     updateQuantityFn({ ...product, quantity: newQuantity });
   }, [quantity, product, updateQuantityFn]);
 

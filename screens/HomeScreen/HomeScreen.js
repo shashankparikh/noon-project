@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   ActivityIndicator,
   TouchableOpacity,
@@ -54,20 +54,26 @@ const HomeScreen = (props) => {
     navigation.navigate("SearchScreen");
   };
 
-  const handleCardPress = (product) => {
-    navigation.navigate("ProductDetail", { product });
-  };
+  const handleCardPress = useCallback(
+    (product) => {
+      navigation.navigate("ProductDetail", { product });
+    },
+    [navigation]
+  );
 
-  const handleQuantityChange = (updatedProduct) => {
-    setProducts((prevProducts) =>
-      prevProducts.map((item) =>
-        item.id === updatedProduct.id
-          ? { ...item, quantity: updatedProduct.quantity }
-          : item
-      )
-    );
-    updateProductQuantity(updatedProduct);
-  };
+  const handleQuantityChange = useCallback(
+    (updatedProduct) => {
+      setProducts((prevProducts) =>
+        prevProducts.map((item) =>
+          item.id === updatedProduct.id
+            ? { ...item, quantity: updatedProduct.quantity }
+            : item
+        )
+      );
+      updateProductQuantity(updatedProduct);
+    },
+    [updateProductQuantity]
+  );
 
   const handleRefresh = () => {
     setRefreshing(true);
@@ -109,10 +115,8 @@ const HomeScreen = (props) => {
         renderItem={({ item }) => (
           <Card
             product={item}
-            onPress={() => handleCardPress(item)}
-            onQuantityChange={(updatedProduct) =>
-              handleQuantityChange(updatedProduct)
-            }
+            onPress={handleCardPress}
+            onQuantityChange={handleQuantityChange}
           />
         )}
         numColumns={2}

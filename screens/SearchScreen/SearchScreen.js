@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   View,
   ActivityIndicator,
@@ -27,16 +27,19 @@ const SearchScreen = (props) => {
   const [recentSearches, setRecentSearches] = useState([]);
   const navigation = useNavigation();
 
-  const handleQuantityChange = (updatedProduct) => {
-    setResults((prevProducts) =>
-      prevProducts.map((item) =>
-        item.id === updatedProduct.id
-          ? { ...item, quantity: updatedProduct.quantity }
-          : item
-      )
-    );
-    updateProductQuantity(updatedProduct);
-  };
+  const handleQuantityChange = useCallback(
+    (updatedProduct) => {
+      setResults((prevProducts) =>
+        prevProducts.map((item) =>
+          item.id === updatedProduct.id
+            ? { ...item, quantity: updatedProduct.quantity }
+            : item
+        )
+      );
+      updateProductQuantity(updatedProduct);
+    },
+    [updateProductQuantity]
+  );
 
   useEffect(() => {
     if (query.length === 0) {
@@ -62,9 +65,12 @@ const SearchScreen = (props) => {
     return () => clearTimeout(delayDebounce);
   }, [query, recentSearches, getProductList]);
 
-  const handleCardPress = (product) => {
-    navigation.navigate("ProductDetail", { product });
-  };
+  const handleCardPress = useCallback(
+    (product) => {
+      navigation.navigate("ProductDetail", { product });
+    },
+    [navigation]
+  );
 
   return (
     <View style={styles.container}>
@@ -95,10 +101,8 @@ const SearchScreen = (props) => {
           renderItem={({ item }) => (
             <Card
               product={item}
-              onPress={() => handleCardPress(item)}
-              onQuantityChange={(updatedProduct) =>
-                handleQuantityChange(updatedProduct)
-              }
+              onPress={handleCardPress}
+              onQuantityChange={handleQuantityChange}
             />
           )}
           numColumns={2}

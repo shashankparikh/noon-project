@@ -23,17 +23,17 @@ const AppNavigator = () => (
     <Stack.Screen
       name="SearchScreen"
       component={SearchScreen}
-      options={{ title: "Search Product" }}
+      options={{ title: "Search Product", headerBackTitle: "Back" }}
     />
     <Stack.Screen
       name="CartReviewScreen"
       component={CartReviewScreen}
-      options={{ title: "Cart Review" }}
+      options={{ title: "Cart Review", headerBackTitle: "Back" }}
     />
     <Stack.Screen
       name="ConfirmationScreen"
       component={ConfirmationScreen}
-      options={{ title: "Confirmation" }}
+      options={{ title: "Confirmation", headerBackTitle: "Back" }}
     />
   </Stack.Navigator>
 );

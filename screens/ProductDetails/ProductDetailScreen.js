@@ -97,7 +97,7 @@ const ProductDetailScreen = ({
         </View>
 
         <Text style={styles.sectionTitle}>{TEXT.reviews}</Text>
-        {product.reviews.map((review, index) => (
+        {product?.reviews.map((review, index) => (
           <ReviewItem key={index} review={review} />
         ))}
       </ScrollView>
